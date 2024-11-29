@@ -1,0 +1,17 @@
+steps:
+  # Langkah untuk build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/newsapi-442013/batik-prediction-api'  # Gunakan nama image yang sesuai
+      - '.'
+
+  # Push Docker image ke GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/newsapi-442013/batik-prediction-api'
+
+images:
+  - 'gcr.io/newsapi-442013/batik-prediction-api'  # Nama image yang akan dipakai di Cloud Run
